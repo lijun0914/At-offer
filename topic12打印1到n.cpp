@@ -1,12 +1,23 @@
 /*
-	ÊäÈëÊı×Ön,°´Ë³Ğò´òÓ¡³ö´Ó1µ½×î´ónÎ»µÄÊ®½øÖÆÊı£¬±ÈÈçÊäÈë3
-	Ôò´òÓ¡³ö1,2,3.¡£¡£¡£999 
+	è¾“å…¥æ•°å­—n,æŒ‰é¡ºåºæ‰“å°å‡ºä»1åˆ°æœ€å¤§nä½çš„åè¿›åˆ¶æ•°ï¼Œæ¯”å¦‚è¾“å…¥3
+	åˆ™æ‰“å°å‡º1,2,3.ã€‚ã€‚ã€‚999 
 */
 #include <iostream>
 using namespace std;
 /*
-	´òÓ¡´Óx000-¡·x001-¡·x002 
+	æ‰“å°ä»x000-ã€‹x001-ã€‹x002 
 */
+void printWithString(string s,int index){
+    if(index==s.size()){
+        cout<<s<<endl;
+        return;
+    }else{
+        for(int i=0;i<10;++i){
+            s[index]=i+'0';
+            print(s,index+1);
+        }
+    }
+}
 void print(char *number,int len,int index){
 	if(index==len-1){
 		string s1=number;
