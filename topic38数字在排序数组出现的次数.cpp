@@ -1,16 +1,16 @@
 /*
-	Í³¼ÆÒ»¸öÊı×ÖÔÚÅÅĞòÊı×éÖĞ³öÏÖµÄ´ÎÊı¡£ÀıÈçÊäÈë{1,2£¬3,3,3,3,4,5}
-	ÓÉÓÚ3³öÏÖ4´Î£¬Òò´ËÊä³ö4 
+	ç»Ÿè®¡ä¸€ä¸ªæ•°å­—åœ¨æ’åºæ•°ç»„ä¸­å‡ºç°çš„æ¬¡æ•°ã€‚ä¾‹å¦‚è¾“å…¥{1,2ï¼Œ3,3,3,3,4,5}
+	ç”±äº3å‡ºç°4æ¬¡ï¼Œå› æ­¤è¾“å‡º4 
 */
 #include <vector>
 #include <iostream>
 using namespace std;
 /*
-	¶ÔÓÚ×ó°ë²¿·Ö 
+	å¯¹äºå·¦åŠéƒ¨åˆ† 
 If A[mid] < target, then the range must begins on the right of mid (hence i = mid+1 for the next iteration)
 If A[mid] > target, it means the range must begins on the left of mid (j = mid-1)
 If A[mid] = target, then the range must begins on the left of or at mid (j= mid)
-	¶ÔÓÚÓÒ°ë²¿·Ö
+	å¯¹äºå³åŠéƒ¨åˆ†
 	
 If A[mid] > target, then the range must begins on the left of mid (j = mid-1)
 If A[mid] < target, then the range must begins on the right of mid (hence i = mid+1 for the next iteration)
@@ -46,6 +46,34 @@ int count(vector<int>& vc,int val){
 	end=high;
 	cout<<"the index of right bound is"<<end<<endl;
 	return end-begin+1;
+}
+int stlCount(vector<int>& vc,int val){
+    auto len=vc.end()-vc.begin();
+    auto first=vc.begin();
+    auto last=vc.end();
+    while(len>0){
+        auto half = len>>1;
+        auto mid=first+half;
+        if(*mid<val){
+            first=mid+1;
+            len=len-half-1;
+        }else{
+            len=half;
+        }
+    }
+    auto beg=first;
+    len=last-first;
+    while(len>0){
+        auto half=len>>1;
+        auto mid=first+half;
+        if(*mid>val){
+            len=half;
+        }else{
+            first=mid+1;
+            len=len-half-1;
+        }
+    }
+    return first-beg;
 }
 int main(){
 	vector<int> test={
