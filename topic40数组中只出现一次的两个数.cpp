@@ -1,13 +1,13 @@
 /*
- Ò»¸öÊý×é³ýÁËÁ½¸öÊý×ÖÖ®Íâ£¬ÆäËûÊý×Ö¶¼³öÏÖÁËÁ½´Î¡£ÕÒ³öÕâÁ½¸öÊý×Ö 
+ ä¸€ä¸ªæ•°ç»„é™¤äº†ä¸¤ä¸ªæ•°å­—ä¹‹å¤–ï¼Œå…¶ä»–æ•°å­—éƒ½å‡ºçŽ°äº†ä¸¤æ¬¡ã€‚æ‰¾å‡ºè¿™ä¸¤ä¸ªæ•°å­— 
 */
 #include <vector>
 #include <iostream>
 using namespace std;
 /*
-	Á½¸öÏàÍ¬µÄÊý×ÖÒì»òÎª0
-	ÆäÖÐ²»Í¬µÄÁ½¸öÊý×Ö ±Ø¶¨ÓÐÒ»Î»²»Í¬
-	¿ÉÒÔ¸ù¾ÝÕâÒ»Î»½«Êý×Ö·Ö³ÉÁ½×é 
+	ä¸¤ä¸ªç›¸åŒçš„æ•°å­—å¼‚æˆ–ä¸º0
+	å…¶ä¸­ä¸åŒçš„ä¸¤ä¸ªæ•°å­— å¿…å®šæœ‰ä¸€ä½ä¸åŒ
+	å¯ä»¥æ ¹æ®è¿™ä¸€ä½å°†æ•°å­—åˆ†æˆä¸¤ç»„ 
 */
 vector<int> singleNum(vector<int>& nums){
 	int temp=0;
@@ -37,7 +37,7 @@ int main(){
 		1,1,2,2,3,3,4,5,6,6
 	};
 	vector<int> res=singleNum(test);
-	for(i:res){
+	for(auto i:res){
 		cout<<i<<" ";
 	}
 }
