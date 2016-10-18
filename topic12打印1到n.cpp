@@ -14,7 +14,7 @@ void printWithString(string s,int index){
     }else{
         for(int i=0;i<10;++i){
             s[index]=i+'0';
-            print(s,index+1);
+            printWithString(s,index+1);
         }
     }
 }
