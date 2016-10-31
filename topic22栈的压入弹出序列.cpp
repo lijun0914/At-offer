@@ -14,6 +14,18 @@ using namespace std;
 		找到后弹出这个临时堆栈里的元素 直到整个压入序列完成 
 */
 bool isPop(vector<int>& push,vector<int>& pop){
+	stack<int> seq;
+	for(int i=0,j=0;i<push.size();i++){
+		seq.push(push[i]);
+		while(!seq.empty()&&pop[j]==seq.top()){
+			seq.pop();
+			j++;
+		}
+	}
+	return seq.empty();
+}
+
+bool isPop(vector<int>& push,vector<int>& pop){
 		bool poss=false;
 		int i=0;
 		int j=0;
