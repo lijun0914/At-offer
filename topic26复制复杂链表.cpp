@@ -25,6 +25,7 @@ void connectSlib(ComplexListNode* pHead){
 	while(pNode!=NULL){
 		ComplexListNode* tmp=pNode->next;
 		tmp->slib=pNode->slib->next;
+		pNode = tmp->next;
 	}
 }
 ComplexListNode* reconnect(ComplexListNode* pHead){
