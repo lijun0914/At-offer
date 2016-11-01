@@ -1,6 +1,6 @@
 /*
-	ÇëÊµÏÖº¯ÊýComplexListNode* Clone(ComplexListNode* pHead)
-	¸´ÖÆÒ»¸ö¸´ÔÓÁ´±í¡£m_pSliblingÖ¸ÏòÁ´±íÖÐµÄÈÎÒâ½Úµã»òÕßNULL 
+	è¯·å®žçŽ°å‡½æ•°ComplexListNode* Clone(ComplexListNode* pHead)
+	å¤åˆ¶ä¸€ä¸ªå¤æ‚é“¾è¡¨ã€‚m_pSliblingæŒ‡å‘é“¾è¡¨ä¸­çš„ä»»æ„èŠ‚ç‚¹æˆ–è€…NULL 
 */
 #include <iostream>
 struct ComplexListNode{
@@ -17,7 +17,7 @@ void cloneNodes(ComplexListNode* pHead){
 		tmp->slib=NULL;
 		
 		pNode->next=tmp;
-		pNode=pNode->next;
+		pNode=tmp->next;
 	}
 }
 void connectSlib(ComplexListNode* pHead){
