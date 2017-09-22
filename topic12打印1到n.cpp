@@ -8,12 +8,15 @@ using namespace std;
 	打印从x000-》x001-》x002 
 */
 void printWithString(string s,int index){
-    if(index==s.size()){
+    if(index==s.size()-1){
+	int zero = 0;
+	while(s[zero]=='0'&&s[zero]!='\0')
+            zero++;
         cout<<s<<endl;
         return;
     }else{
         for(int i=0;i<10;++i){
-            s[index]=i+'0';
+            s[index+1]=i+'0';
             printWithString(s,index+1);
         }
     }
