@@ -89,6 +89,67 @@ ListNode* reverseBetween(ListNode* head, int m, int n) {
         return dummy->next;
 
 }
+
+
+
+ListNode* reverseKList(ListNode* head, int k ) {
+	int size = 0;
+	ListNode* tmp = head;
+	while(tmp!=nullptr) {
+		tmp = tmp->m_pNext;
+		size++;
+	}
+	if (size < k) return head;
+	
+	if (head == nullptr) 
+	    return nullptr;
+	
+	ListNode *cur = head;
+	ListNode *pre = nullptr;
+	ListNode *next = nullptr;
+	int count = 0;
+	while (cur != nullptr && count < k ) {
+		next = cur->m_pNext;
+		cur->m_pNext = pre;
+		pre = cur;
+		cur = next;
+		count++;
+	}
+	
+	if (next != nullptr) {
+		head->m_pNext = reverseKList(next, k);
+	}
+	return pre;
+}
+
+ListNode* reverseK(ListNode* head, int k) {
+	ListNode* dummy = new ListNode(0);
+	dummy->m_pNext = head;
+	ListNode* before = dummy;
+	ListNode* after = head;
+	ListNode* cur = nullptr, *pre = nullptr, *next = nullptr;
+	
+	while(true) {
+		ListNode* cursor = after;
+		for(int i = 0;i < k;i++) {
+			if (cursor == nullptr)
+			    return dummy->m_pNext;
+			cursor = cursor->next;
+		}
+		cur = after;
+		pre = before;
+		for(int i =0;i<k;i++) {
+			next = cur->m_pNext;
+			cur->m_pNext = pre;
+			pre = cur;
+			cur = next;
+		}
+		after->m_pNext = cur;
+		before->m_pNext = pre;
+		before = after;
+		after = cur;
+	}
+}
 int main(void){
 	ListNode *s1=new ListNode();
 	cout<<s1->m_value<<endl;
